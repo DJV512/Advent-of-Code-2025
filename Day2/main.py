@@ -1,6 +1,6 @@
 import time
 import utils
-
+import re
 
 def main():
     start_time = time.time()
@@ -35,15 +35,38 @@ def parse_data():
     # FILENAME = "sample_input.txt"
     FILENAME = "input.txt"
     
-    return utils.parse_input(FILENAME, method="raw_lines")
+    return utils.parse_input(FILENAME, method="raw_read")
 
 
 def part1(data):
-    return None
+
+    invalid = []
+    num_ranges = data.split(",")
+    for num_range in num_ranges:
+        first, last = num_range.split("-")
+        first = int(first)
+        last = int(last)
+        for i in range(first, last+1):
+            match = re.fullmatch(r"(.+)\1", str(i))
+            if match:
+                invalid.append(i)
+
+    return sum(invalid)
 
 
 def part2(data):
-    return None
+    invalid = []
+    num_ranges = data.split(",")
+    for num_range in num_ranges:
+        first, last = num_range.split("-")
+        first = int(first)
+        last = int(last)
+        for i in range(first, last+1):
+            match = re.fullmatch(r"(.+)\1+", str(i))
+            if match:
+                invalid.append(i)
+
+    return sum(invalid)
 
 
 if __name__ == "__main__":
