@@ -32,8 +32,8 @@ def debug_print(*args, **kwargs):
 
 
 def parse_data():
-    # FILENAME = "sample_input.txt"
-    FILENAME = "input.txt"
+    FILENAME = "sample_input.txt"
+    # FILENAME = "input.txt"
     
     return utils.parse_input(FILENAME, method="raw_lines")
 
