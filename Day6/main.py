@@ -122,18 +122,8 @@ def part2(data):
             result *= operand
 
     final_results.append(result)
-    current_operands = []
 
     return(sum(final_results))
-
-
-
-
-
-
-
-
-    return
     
 
 
